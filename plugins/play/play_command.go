@@ -6,13 +6,13 @@ import (
 	"strings"
 
 	"github.com/go-chat-bot/bot"
-	"github.com/vincentserpoul/officify"
+	"github.com/vincentserpoul/slackify"
 )
 
 func play(command *bot.Cmd) (msg string, err error) {
 	spotifyURI := strings.Trim(strings.Trim(command.Args[0], "<"), ">")
 	msg = fmt.Sprintf("playing %s for %s!", spotifyURI, command.User.RealName)
-	errSpot := officify.Play(spotifyURI)
+	errSpot := slackify.Play(spotifyURI)
 	if errSpot != nil {
 		log.Println(errSpot)
 	}
@@ -21,7 +21,7 @@ func play(command *bot.Cmd) (msg string, err error) {
 }
 
 func next(command *bot.Cmd) (msg string, err error) {
-	errSpot := officify.Next()
+	errSpot := slackify.Next()
 	if errSpot != nil {
 		log.Println(errSpot)
 	}

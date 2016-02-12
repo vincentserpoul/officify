@@ -1,4 +1,4 @@
-package officify
+package slackify
 
 import (
 	"github.com/everdev/mack"
